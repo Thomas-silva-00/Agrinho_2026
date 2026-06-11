@@ -1,0 +1,297 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+    --primary-color: #1b4d3e;     /* Verde escuro floresta */
+    --secondary-color: #2e8b57;   /* Verde folha médio */
+    --accent-color: #0077b6;      /* Azul água */
+    --alert-color: #d97706;       /* Laranja alerta */
+    --dark-text: #2d3748;         /* Cinza escuro para texto */
+    --light-bg: #f7fafc;          /* Fundo quase branco */
+    --white: #ffffff;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--accent-color);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   NAVEGAÇÃO INTERNA
+   ========================================================================== */
+nav {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.nav-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.nav-container a:hover {
+    background-color: #e2e8f0;
+    color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   ESTRUTURA DE LAYOUT (CONTAINER)
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    margin-bottom: 4rem;
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    color: #4a5568;
+}
+
+strong {
+    color: #1a202c;
+}
+
+/* ==========================================================================
+   COMPONENTES ESPECÍFICOS
+   ========================================================================== */
+
+/* Cards em Grade (Vantagens / Sistemas) */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 5px solid var(--secondary-color);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card.azul { border-top-color: var(--accent-color); }
+.card.laranja { border-top-color: var(--alert-color); }
+
+/* Tabelas Informativas */
+.table-responsive {
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Listas Customizadas */
+.custom-list {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.custom-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    top: -2px;
+}
+
+/* Callout / Bloco de Alerta */
+.alert-box {
+    background-color: #fffaf0;
+    border-left: 5px solid var(--alert-color);
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 2rem 0;
+}
+
+.alert-box h4 {
+    color: #c05621;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 5rem;
+}
+
+footer p {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
